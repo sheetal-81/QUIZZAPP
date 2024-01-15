@@ -26,6 +26,6 @@
         android:text="Restart Quizz"
         android:textAllCaps="false"
         android:textSize="25dp"
-        android:id="@+id/restart"
+        android:id="@+id/restart"/>
 
 </LinearLayout>

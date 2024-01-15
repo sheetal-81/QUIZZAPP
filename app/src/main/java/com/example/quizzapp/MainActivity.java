@@ -3,14 +3,12 @@ package com.example.quizzapp;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
-import android.content.pm.LabeledIntent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.Random;
@@ -89,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
     private void showBottomSheet()
     {
         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(MainActivity.this);
-        View bottomSheetView= LayoutInflater.from(getApplicationContext().inflate(R.layout.score_bottom_sheet,(LinearLayout)findViewById()));
+        View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.score_bottom_sheet, null);
+
+
         TextView scoreTv=bottomSheetView.findViewById(R.id.idScore);
         Button restartQuizzBtn=bottomSheetView.findViewById(R.id.restart);
         scoreTv.setText("Your Score is \n" +currentScore);
@@ -106,8 +106,6 @@ public class MainActivity extends AppCompatActivity {
         bottomSheetDialog.setCancelable(false);
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
-
-
     }
 
     private void setDataToViews(int currentPos)
@@ -126,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-        private void getQuizz2Question()
+        private void getQuizz2Question(ArrayList<quizzmodel> quizzmodelArrayList)
         {
-            quizzmodelArrayList.add(new quizzmodel("what is current version of java ? " ,"8 ","17","21","25","21"));
-            quizzmodelArrayList.add(new quizzmodel("which language is used in web development ? " ,"HTML & CSS ","Java","Kotlin","Python","HTML & CSS"));
-            quizzmodelArrayList.add(new quizzmodel("Which is the official ide used for android development ? " ," Intellij idea ","vs code","sublime","Android studio","Android studio"));
-            quizzmodelArrayList.add(new quizzmodel("Which is the popular javascript library ? " ,"Springboot ","React Js","Dart","Angular","React Js"));
+            this.quizzmodelArrayList.add(new quizzmodel("what is current version of java ? " ,"8 ","17","21","25","21"));
+            this.quizzmodelArrayList.add(new quizzmodel("which language is used in web development ? " ,"HTML & CSS ","Java","Kotlin","Python","HTML & CSS"));
+            this.quizzmodelArrayList.add(new quizzmodel("Which is the official ide used for android development ? " ," Intellij idea ","vs code","sublime","Android studio","Android studio"));
+            this.quizzmodelArrayList.add(new quizzmodel("Which is the popular javascript library ? " ,"Springboot ","React Js","Dart","Angular","React Js"));
         }
     }
